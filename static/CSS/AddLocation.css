@@ -1,0 +1,482 @@
+.ImportCreater{
+    background-color: rgb(83, 169, 196);
+    box-shadow: 0px 3px 6px rgba(47, 48, 50, 0.932);
+    border-radius: 25px;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    width: 95%;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    padding-bottom: 30px;
+}
+.ContainEdit{
+    border: 1px solid rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    color: rgb(0, 0, 0);
+    padding: 5px;
+    width: 35%;
+    margin-top: 30px;
+    border: solid 2px grey;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+
+    min-width: 95%;
+}
+.LocSpace{
+    margin-top: 100px;
+}
+.TypeOutside{
+    margin: 15px;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    width: 30%;
+    padding: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    text-align: center;
+    outline: none;
+    font-size: 25px;
+    border: 3px solid rgb(138, 138, 138);
+    border-radius: 10px;
+}
+.collapseImport{
+    background-color: rgb(31, 92, 110);
+    border-radius: 30px;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    padding-bottom: 30px;
+    width: 90%;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+
+}
+.importbutton{
+    background-color: rgb(129, 194, 224);
+    margin: 15px;
+    margin-top: 30px;
+    border: 1px solid rgb(145, 145, 145);
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+    text-align: center;
+    display: inline;
+    font-size: 20px;
+    transition-duration: 5ms;
+    padding: 7px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.importbutton:hover{
+    background-color: rgb(101, 217, 221);
+    border: 1px solid rgb(89, 115, 122);
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+    text-align: center;
+    display: inline;
+    transition-duration: 5ms;
+    padding: 7px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.ImportCreater{
+    background-color: rgb(72, 46, 112);
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    width: 90%;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+}
+.TextfieldLeftLabel{
+    background-color: white;
+    border-radius: 8px;
+    color: rgb(0, 0, 0);
+    border: 1px black solid;
+    font-size: 30px;
+    padding: 4px;
+    padding-left: 20px;
+}
+.CreateInfo{
+    text-align: center;
+}
+
+/* source: https://www.w3schools.com/howto/howto_css_loader.asp*/
+.loader{
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    border: 18px solid rgba(228, 228, 228, 0.671);
+    border-top: 18px solid rgb(32, 219, 148);
+    animation: spin 2s linear infinite;
+    margin-left: auto;
+    margin-right: auto;
+}
+@keyframes spin { 
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+
+
+.OptionAddassignments{
+    margin: 15px;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    width: 70%;
+    padding: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    text-align: center;
+    outline: none;
+    font-size: 25px;
+    border: 3px solid rgb(138, 138, 138);
+    border-radius: 10px;
+}
+.CenterElement{
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    text-align: center;
+}
+.contentImp{
+    background-color: rgb(135, 193, 211);
+    box-shadow: 0px 3px 6px rgba(47, 48, 50, 0.932);
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    width: 90%;
+    margin-top: -25px;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    padding-bottom: 50px;
+    height: 150px;
+}
+
+.LocationOverview{
+    background-color: rgb(75, 139, 158);
+    border-radius: 20px;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    box-shadow: 0px 3px 6px rgba(47, 48, 50, 0.932);
+
+    padding: 10px;
+    width: 90%;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid gray;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    height: 90px;
+}
+.LocationOverview:hover{
+    box-shadow: 0px 5px 9px rgba(0, 0, 0, 0.932);
+}
+.LocationOverview:active{
+    transform: translateY(3px);
+    box-shadow: 0px 5px 9px rgba(0, 0, 0, 0.932);
+}
+.LocationOverview:focus{
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+.leftDiv{
+    float:left;
+    width: 49%;
+    padding-left: 1%;
+    height: 95%;
+    text-align: right;
+}
+.rightDiv{
+    float:right;
+    width: 49%;
+    padding-right: 1%;
+    height: 95%;
+    text-align: left;
+}
+
+.forcePushB{
+    float:right;
+    background-color: rgb(31, 206, 110);
+    margin: 10px;
+    margin-top: 5%;
+    margin-bottom: 30px;
+    border: 3px solid rgb(114, 175, 0);
+    color: rgb(0, 0, 0);
+    border-radius: 15px;
+    text-align: center;
+    display: inline;
+    font-size: 25px;
+    transition-duration: 5ms;
+    padding: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 85%;
+    height: 80%;
+    margin-right: 0%;
+}
+.forcePushB:hover{
+    box-shadow: 0px 5px 9px rgba(0, 0, 0, 0.932);
+    background-color : rgb(66, 95, 11); 
+    border: 3px solid rgb(11, 105, 74);
+
+}
+.forcePushB:active{
+    transform: translateY(3px);
+    background-color : rgb(28, 122, 67);
+    background-color: 3px solid rgb(69, 90, 29);
+}
+
+
+.forceRemove{
+    float:left;
+    background-color: rgb(230, 54, 54);
+    margin: 10px;
+    margin-top: 5%;
+    margin-bottom: 30px;
+    border: 3px solid rgb(245, 90, 0);
+    color: rgb(0, 0, 0);
+    border-radius: 15px;
+    text-align: center;
+    display: inline;
+    font-size: 25px;
+    transition-duration: 5ms;
+    padding: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 85%;
+    height: 80%;
+    margin-left: 0px;
+}
+.forceRemove:hover{
+    background-color:rgba(160, 0, 0, 0.932);
+    border: 3px solid rgba(87, 0, 0, 0.932);
+
+}
+.forceRemove:active{
+    transform: translateY(3px);
+    background-color: 3px solid rgb(69, 90, 29);
+}
+.LocViewType{
+    float: left;
+    width: 48%;
+    margin: 10px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    padding: 2px;
+    margin-left: 1%;
+    margin-right: 1%;
+    border: none;
+    text-align: center;
+    outline: none;
+    font-size: 25px;
+    border: 3px solid rgb(138, 138, 138);
+    border-radius: 10px;
+}
+.LocViewInfo{
+    float: right;
+    width: 48%;
+    margin: 10px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    padding: 2px;
+    margin-left: 1%;
+    margin-right: 1%;
+    border: none;
+    text-align: center;
+    outline: none;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 25px;
+    border: 3px solid rgb(138, 138, 138);
+    border-radius: 10px;
+}
+
+
+.PhoneArea{
+    float: left;
+    width: 30%;
+    margin: 10px;
+    margin-top: 5px;
+    margin-bottom: 3px; 
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    margin-left: 3%;
+    margin-right: 1%;
+    border: none;
+    text-align: center;
+    outline: none;
+    font-size: 25px;
+    font-size-adjust: 80%;
+    border: 1px solid rgb(138, 138, 138);
+    border-radius: 10px;
+}
+.PhoneNumberField{
+    float: left;
+    width: 30%;
+    margin: 10px;
+    margin-top: 5px;
+    margin-bottom: 3px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    padding: 8px;
+    margin-left: 1%;
+    margin-right: 1%;
+    border: none;
+    text-align: center;
+    outline: none;
+    font-size: 25px;
+    border: 3px solid rgb(138, 138, 138);
+    border-radius: 10px;
+    text-decoration: underline;
+}
+.PhoneNumberField:hover{
+    background-color: rgb(221, 221, 221);
+}
+.PhoneNumberField:focus{
+    background-color: rgb(255, 255, 255);
+}
+
+
+.DiscriptionPhone{
+    float: left;
+    width: 90%;
+    margin: 10px;
+    margin-top: 10px;
+    margin-bottom: 3px; 
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    margin-left: 3%;
+    margin-right: 1%;
+    border: none;
+    text-align: center;
+    outline: none;
+    font-size: 25px;
+    font-size-adjust: 80%;
+    border: 1px solid rgb(138, 138, 138);
+    border-radius: 10px;
+}
+
+
+.OptOut{
+    float:left;
+    background-color: rgb(230, 54, 54);
+    margin: 10px;
+    margin-top: 5px;
+    margin-bottom: 3px;
+    border: 2px solid rgb(245, 90, 0);
+    color: rgb(0, 0, 0);
+    border-radius: 15px;
+    text-align: center;
+    display: inline;
+    font-size: 25px;
+    transition-duration: 5ms;
+    padding: 2px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 2%;
+}
+.OptOut:hover{
+    background-color:rgba(160, 0, 0, 0.932);
+    border: 3px solid rgba(87, 0, 0, 0.932);
+
+}
+.OptOut:active{
+    transform: translateY(3px);
+    background-color: 3px solid rgb(69, 90, 29);
+}
+
+.SubmitNumber{
+    float:left;
+    background-color: rgb(129, 194, 224);
+    margin: 10px;
+    margin-top: 5px;
+    margin-bottom: 3px;
+    border: 1px solid rgb(100, 149, 172);
+    color: rgb(0, 0, 0);
+    border-radius: 15px;
+    text-align: center;
+    display: inline;
+    font-size: 25px;
+    transition-duration: 5ms;
+    padding: 2px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    margin-left: 1%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.SubmitNumber:hover{
+    background-color:rgba(24, 82, 170, 0.932);
+    border: 2px solid rgb(129, 194, 224);
+
+}
+.SubmitNumber:active{
+    transform: translateY(3px);
+    background-color: 3px solid rgb(69, 90, 29);
+}
+
+.PhoneNumberArea{
+    background-color: rgb(62, 74, 139);
+    border-radius: 10px;
+    color: rgb(0, 0, 0);
+    box-shadow: 0px 3px 6px rgba(47, 48, 50, 0.932);
+    text-align: center;
+    padding: 10px;
+    width: 90%;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid gray;
+    outline: none;
+    font-size: 15px;
+    height:200px;
+}
+.topdownDiv{
+    height: 50%;
+}

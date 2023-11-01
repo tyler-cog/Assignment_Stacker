@@ -1,0 +1,231 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> <!-- for sorting -->
+        <title>Assignment Stacker Imports and Notifications</title>
+        <link id="BasicHome" rel="stylesheet" type="text/css" href="{{ url_for('static',filename='CSS/AddLocation.css') }}" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link id="DefaultFonts" rel="stylesheet" type="text/css" href="{{ url_for('static',filename='CSS/DefaultFonts.css')}}"/>
+		<link id="ReadabilityFonts" rel="stylesheet" type="text/css" href="{{ url_for('static',filename='CSS/ReadabilityFont.css') }} " disabled="disabled"/>
+        <link id="BasicHome" rel="stylesheet" type="text/css" href="{{ url_for('static',filename='CSS/BasicHome.css') }}" />
+
+        {% assets "import_js" %}
+		<script type="text/javascript" src="{{ ASSET_URL}}"></script>
+		{% endassets %}
+        <!-- <script src="{{ url_for('static',filename='Scripts/JSONGetsAndSets.js') }}"></script>
+        <script src="{{ url_for('static',filename='Scripts/ImportScripts.js') }}"></script>
+        <script src="{{ url_for('static',filename='Scripts/AssignmentCreatingScripts.js') }}"></script>
+        <script src="{{ url_for('static',filename='Scripts/scripts.js') }}"></script> -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+        <link rel="shortcut icon" href="{{ url_for('static', filename='Images/FavCon2.PNG') }}">
+        
+    </head>
+
+    <body class="background">
+        <div class="content">
+
+            <!-- Navigation Bar -->
+            <div class=Mynavbar>
+                <img src="{{ url_for('static', filename='Images/Logo.PNG') }}" style="width: 8%; height: 8%; margin-top: -25px;" >
+                <button class="button Font1" onclick="location.href='Home.html'">Home </button>
+                <button class="button Font1" onclick="location.href='Quick_View.html'"> Quick View</button>
+                <button class="button pushedButton Font1" onclick="location.href='AddLocation.html'"> Imports and Notifications</button>
+                <label for="SortSelect"><p style="font-size: 36px;" class="Font1">Sort:</p> </label>
+                <select class="priorityButton Font1" aria-label="Priority select table" id="SortSelect" disabled>
+                    <option value="DueDate Font1" selected>Sort Disabled</option>
+                    <option value="Priority Font1">Priority</option>
+                    <option value="StartDate Font1 ">Assigned Date</option>
+                    <option value="TimePast Font1" >Time Expired</option>
+                </select>
+                <button class="Accessbutton Font4" onclick="toggle()">Readability Support</button>
+                <button class="Logoutbutton Font4" onclick="LogoutUser()">Logout</button> 
+                
+            </div>
+
+            <div class="PhoneNumberArea" id="phoneNotificationsSection">
+                <div class="topdownDiv">
+                    <div class="PhoneArea Font2" id="LocationType">
+                        PhoneNumber to Message: 
+                    </div>
+                    <input class="PhoneNumberField Font1" id="PhoneNumberField" onblur="" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="'Format:[111-111-1111]'" value="">
+                    <button class="SubmitNumber Font2" id="SubmitNumberButton" onclick="AddNumberButton()">Submit</button>
+                    <button class="OptOut Font1" id="RemovephoneButton" onclick="RemovePhoneNumberButton()">Remove Number</button>
+                </div>
+                <div class="topdownDiv"><p class="DiscriptionPhone Font1">By submitting your number, you will recive daily text messages with the next 3 days assignments.</p></div>
+            </div>
+
+        
+            <div id="Locations" style="margin-bottom: 50px; margin-top: 30px;"><!-- will display all existing connection here to remove-->
+
+            </div>
+
+            <div id="ImportCreater" class="ImportCreater">
+                <div id="SourceGroup" class="TypeOutside"> 
+                    <Label for="Source" class="Font2">Location Type:</Label>
+                    <select class="Font1" aria-label="Priority select table" id="Source" onchange="CT(this.options[this.selectedIndex].value)">
+                        <option value="none" selected>Location</option>
+                        <option value="Canvas">Canvas</option>
+                        <option value="Google">Class Room</option>
+                    </select>
+                </div>
+
+                <!--Div that collapses-->
+                <div class="collapse collapseImport" id="ImportInfo">
+                    <div class="CreateInfo clearfix" id="CollapseCont">
+                        
+                    </div>
+                    <div id="SelectLocation" class="clearfix">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+
+        
+        <script>
+			window.onload = function(){
+				//console.log("BEFORE: \n");
+				//console.log(localStorage);
+				var DBclassList;
+				$.ajax({
+					url:"/bgLoadUserClasses",
+					type: "GET",
+                    async: false,
+					contentType: "application/json",
+					success: function (response){
+						DBclassList = JSON.parse(response);
+						//console.log(DBclassList);
+						loadPage(DBclassList);
+					}
+				});
+
+
+                // if currentCanvasToken == '', there is not canvasToken
+                // var canvasToken;
+                // var hasValidGoogleToken;
+                // $.ajax({
+                //     url:"/bgGetCurrUserTokens",
+                //     type: "GET",
+                //     async: false,
+                //     contentType: "application/json",
+                //     success: function (response){
+                //         tokens = JSON.parse(response);
+                //         canvasToken = tokens.canvas;
+                //         hasValidGoogleToken = tokens.google;
+                //         // alert(JSON.stringify(tokens));
+                //         // console.log("Google Status: ", hasValidGoogleToken);
+                //         // console.log("Canvas Token: ", canvasToken);
+                //     }
+                // });
+                // PopulateImporterOptions(canvasToken, hasValidGoogleToken);
+                generatePopulateGets();
+
+
+                var number = returnUserPhoneNumber();
+                number = number.trim();
+                if(number != ''){
+                    number = number.slice(0,3) + '-'+ number.slice(3,6) + '-' + number.slice(6,10);  
+                }
+               
+                document.getElementById('PhoneNumberField').setAttribute('value', number);
+
+
+
+                //CreateOptionPannel('info', 'locationType');
+			}
+
+			function loadPage(DBclassList){
+				DBclassList.forEach(newClassObj => {
+					var jsonObj = JSON.stringify(newClassObj);
+    				localStorage.setItem(newClassObj.name, jsonObj);
+                });
+				//console.log(localStorage);
+			}
+
+
+			//this function will remove temp objects when leaving page
+			//and push current classList into database
+			window.onbeforeunload = function(){
+				localStorage.clear();
+			}
+        </script>
+    </body>
+
+</html>
+
+
+
+<template id="CanvasInfoTemp">
+    <div class="CenterElement clearfix" id="CanvasInfo">
+        <!-- <label for="CanvasConnect" class="TextfieldLeftLabel">Enter "" Info here:</label>
+        <input type="text" id="CanvasConnect" id="canvasConnectionInfo">
+        <button class="importbutton" onclick="ImportAPICanvas()">Start Import</button>  -->
+        <!-- <form> -->
+            <label for="CanvasConnect" class="TextfieldLeftLabel Font2">Enter Canvas Token here: <span class="tooltipAddClass"><strong style="font-size: 28px; color: blue;">&#9432;</strong> 
+            <span class="tooltipTextClass" style="width: 420px;">
+                <p>1) Log-in to your Canvas account associated with your class work</p>
+                <p>2) On your left Navigation bar, click on Account</p>
+                <p>3) In the Account menu, click on settings</p>
+                <p>4) From there, scroll down and click on "New Access Token"</p>
+                <p>5) For purpose, input "Assignment Stackers Access", and for expires, leave blank for no expiration or set a experation date.</p>
+                <p>6) Generate the Token, and copy and paste it into the box in order to import class work</p></span>
+            </span> </label>
+            <input type="text" class="Font2" id="CanvasConnect" name="CanvasConnect" style="padding:4px; font-size: 25px;" placeholder="Ex. 'User Token'">
+            <!-- <input type="text" id="InputClassName" placeholder="Ex. 'User Token'">  -->
+            <button class="importbutton Font2" onclick="ImportAPICanvas()">Start Import</button>
+        <!-- </form> -->
+    </div>
+</template>
+
+
+
+
+
+<template id="ClassRoomTemp">
+    <div class="CenterElement clearfix" id="CanvasInfo">
+        <label for="importbutton" class="TextfieldLeftLabel Font2">Start Import from Google Classroom </label>
+        <button class="importbutton Font2" onclick="ImportAPIGoogle()">Start Import</button>
+    </div>
+</template>
+
+<template id="PlaceLocTemp">
+    <div class="OptionAddassignments" id="loc">
+        <label id="locText" for="NewLoc" class="Font2">
+            Place Contents from "" into:
+        </label>
+        <select aria-label="Priority select table" id="NewLoc" class="Font2">
+            <option value="New" class="Font2" selected>Create New Class from name</option>
+            <option value="None" class="Font2" selected>Don't Add</option>
+            
+        </select>
+    </div>
+</template>
+
+<template id="currentAPITemp">
+    <div id="OptionPannel" class="Location"> <!-- Data here is not currently used and can be redefined--> 
+        <button class="LocationOverview" type="button" data-bs-toggle="collapse" data-bs-target="#Collapse" aria-expanded="false" aria-controls="CollapseCourse" id="View">
+            <!-- Will need unique target in future-->
+            <div class="LocViewType Font2" id="LocationType">
+                Location type
+            </div>
+            <div class="LocViewInfo Font2" id="info">
+                <p style="text-overflow: clip;">Token info</p>
+            </div>
+
+        </button>
+        <div class="collapse" id="Collapse">
+            <div class="contentImp clearfix" id="container">
+                <div id="LeftCont" class="leftDiv">
+                    <button class="forcePushB Font2" id="RequestB" onclick="ForceRequest('id', 'type')">Force Import</button>
+                </div>
+                <div id="RightCont" class="rightDiv">
+                    <button class="forceRemove Font2" id="RemoveB" onclick="DeleteRequest('id', 'type')">Delete</button>
+                </div>
+            </div> 
+        </div>
+    </div>
+    
+</template>
